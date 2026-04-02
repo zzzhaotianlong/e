@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class AdminPanel {
     private ArrayList<RegisteredUsers> registeredUsersList = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
+        private static BikeService bikeService = new BikeService();
 
     public void userManagementOptions() {
         while (true) {
@@ -14,7 +15,9 @@ public class AdminPanel {
             System.out.println("2. View Registered Users");
             System.out.println("3. Remove Registered Users");
             System.out.println("4. Update Registered Users");
-            System.out.println("5. EXIT");
+            System.out.println("5. View System Logs");
+            System.out.println("6. Manage Pending Bike Requests");
+            System.out.println("7. EXIT");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -24,7 +27,9 @@ public class AdminPanel {
                 case 2: viewRegisteredUsers(); break;
                 case 3: removeRegisteredUsers(); break;
                 case 4: updateRegisteredUsers(); break;
-                case 5: System.out.println("Exiting..."); return;
+                case 5: bikeService.viewSystemLogs();break;
+                case 6: managePendingRequests();break;
+                case 7: System.out.println("Exiting..."); return;
                 default: System.out.println("Invalid choice. Please try again.");
             }
         }
@@ -173,4 +178,5 @@ public class AdminPanel {
 
         System.out.println("User updated successfully!");
     }
+
 }

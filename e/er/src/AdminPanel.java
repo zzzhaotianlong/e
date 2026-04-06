@@ -84,8 +84,13 @@ public class AdminPanel {
                 trips[t] = sb.toString();
             }
 
-            RegisteredUsers user = new RegisteredUsers(fullName, email, dob, cardNum, expiry, provider, cvv, userType, trips);
-            registeredUsersList.add(user);
+           RegisteredUsers newUser;
+            if (userType.equalsIgnoreCase("VIP")) {
+                newUser = new VIPUser(fullName, emailAddress, dateOfBirth,cardNumber, cardExpiryDate, cardProvider,cvv, userType, lastThreeTrips);
+            } else {
+                newUser = new RegularUser(fullName, emailAddress, dateOfBirth,cardNumber, cardExpiryDate, cardProvider,cvv, userType, lastThreeTrips);
+            }
+            registeredUsersList.add(newUser);
             System.out.println("User added successfully!");
         }
     }

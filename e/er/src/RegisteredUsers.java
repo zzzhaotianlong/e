@@ -101,4 +101,12 @@ public class RegisteredUsers {
                "User Type: " + userType + "\n" +
                "Last Three Trips:\n  " + trips.toString();
     }
+
+    public double calculateFare(double baseFare) {
+    return baseFare;
+   }
+
+   public String displayUserType() {
+    return "Regular User";
+  }
 }
